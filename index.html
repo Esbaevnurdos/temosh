@@ -32,10 +32,10 @@
         margin-bottom: 15px;
         padding: 10px;
         border-radius: 10px;
-        background-color: #e4e6eb;
+        background-color: rgba(128, 128, 128, 0.231);
       }
       .message:nth-child(even) {
-        background-color: #d1e7dd;
+        background-color: rgba(128, 128, 128, 0.231);
       }
       .message p {
         margin: 0;
@@ -60,11 +60,100 @@
           font-size: 0.8rem;
         }
       }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      h1 {
+        text-align: center;
+        background-color: #36b7a8;
+        color: white;
+        padding: 10px;
+        margin: 0;
+      }
+
+      .chat-container {
+        flex: 1.9;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        /* Prevents overflowing content */
+      }
+
+      .chat {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; /* Allows scrolling if needed */
+      }
+
+      #chatContainer {
+        flex: 1;
+        overflow-y: auto;
+        padding: 10px;
+        background-color: #fff;
+      }
+
+      .input-area {
+        display: flex;
+        padding: 10px;
+        background-color: #f4f4f9;
+        border-top: 1px solid #ddd;
+      }
+
+      .input-area input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      .input-area button {
+        padding: 10px;
+        background-color: #36b7a8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .input-area button:hover {
+        background-color: #36b7a8;
+      }
+
+      .message {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgba(128, 128, 128, 0.231);
+      }
+
+      .message p {
+        margin: 0;
+        padding: 2px 0;
+      }
     </style>
   </head>
   <body>
-    <h1>Bookings Chat</h1>
-    <div id="chatContainer"></div>
+    <h1>Barbershop Arin #38</h1>
+    <div class="chat-container">
+      <div class="chat">
+        <div id="chatContainer">
+          <!-- Chat messages will appear here -->
+        </div>
+        <div class="input-area">
+          <input type="text" placeholder="Type your message..." />
+          <button>Send</button>
+        </div>
+      </div>
+    </div>
     <script>
       // Sample data for bookings
       const bookings = [
