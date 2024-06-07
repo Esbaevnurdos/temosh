@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookings Chat</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      h1 {
+        text-align: center;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        margin: 0;
+        font-size: 1.5rem;
+      }
+      #chatContainer {
+        flex: 1;
+        overflow-y: auto;
+        padding: 10px;
+        background-color: #fff;
+      }
+      .message {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #e4e6eb;
+      }
+      .message:nth-child(even) {
+        background-color: #d1e7dd;
+      }
+      .message p {
+        margin: 0;
+        padding: 2px 0;
+      }
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.25rem;
+        }
+        .message p {
+          font-size: 0.9rem;
+        }
+      }
+      @media (max-width: 576px) {
+        h1 {
+          font-size: 1rem;
+        }
+        .message {
+          padding: 8px;
+        }
+        .message p {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bookings Chat</h1>
+    <div id="chatContainer"></div>
+    <script>
+      // Sample data for bookings
+      const bookings = [
+        {
+          id: 1,
+          date: "2024-06-06",
+          time: "10:00 AM",
+          number: "1234567890",
+          age: 25,
+          gender: "Male",
+          description: "Haircut appointment",
+          fullname: "John Doe",
+        },
+        {
+          id: 2,
+          date: "2024-06-07",
+          time: "12:00 PM",
+          number: "0987654321",
+          age: 30,
+          gender: "Female",
+          description: "Hair color appointment",
+          fullname: "Jane Smith",
+        },
+        {
+          id: 3,
+          date: "2024-06-08",
+          time: "02:00 PM",
+          number: "1122334455",
+          age: 22,
+          gender: "Male",
+          description: "Beard trim",
+          fullname: "James Brown",
+        },
+      ];
+
+      // Function to display bookings in the chat container
+      function displayBookings() {
+        const chatContainer = document.querySelector("#chatContainer");
+        chatContainer.innerHTML = ""; // Clear previous messages
+
+        bookings.forEach((booking) => {
+          const message = document.createElement("div");
+          message.classList.add("message");
+          message.innerHTML = `
+            <p><strong>ID:</strong> ${booking.id}</p>
+            <p><strong>Date:</strong> ${booking.date}</p>
+            <p><strong>Time:</strong> ${booking.time}</p>
+            <p><strong>Number:</strong> ${booking.number}</p>
+            <p><strong>Age:</strong> ${booking.age}</p>
+            <p><strong>Gender:</strong> ${booking.gender}</p>
+            <p><strong>Description:</strong> ${booking.description}</p>
+            <p><strong>Fullname:</strong> ${booking.fullname}</p>
+          `;
+          chatContainer.appendChild(message);
+          chatContainer.scrollTop = chatContainer.scrollHeight; // Auto-scroll to bottom
+        });
+      }
+
+      // Display bookings on initial load
+      displayBookings();
+
+      // Refresh bookings every 5 seconds (in a real scenario, this would fetch new data)
+      setInterval(displayBookings, 5000);
+    </script>
+  </body>
+</html>
